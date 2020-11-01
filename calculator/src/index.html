@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Calculadora</title>
+  </head>
+  <body>
+    <main>
+      <div id="calculatorWrapper">
+        <div class="calculator">
+          <div class="calculator__operands">
+            <div class="form-group">
+              <label for="operatorOne">Operador 1</label>
+              <input id="operatorOne" name="operatorOne" type="number">
+            </div>
+            <div class="form-group">
+              <label for="operatorTwo">Operador 2</label>
+              <input id="operatorTwo" name="operatorTwo" type="number">
+            </div>
+          </div>
+          <div class="calculator__buttons">
+            <button data-operation="plus">Sumar</button>
+            <button data-operation="minus">Restar</button>
+            <button data-operation="multiply">Multiplicar</button>
+            <button data-operation="divide">Dividir</button>
+          </div>
+        </div>
+        <div class="calculator__result"></div>
+      </div>
+    </main>
+  </body>
+</html>

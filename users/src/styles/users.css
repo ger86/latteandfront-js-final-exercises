@@ -1,0 +1,21 @@
+.users-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.users-list li {
+  margin-bottom: 1rem;
+}
+
+.user {
+  padding: 1rem;
+  border: 1px solid #E0E0E0;
+  font-size: 1.25rem;
+}
+
+.user img {
+  margin-right: 1rem;
+  display: block;
+  width: 300px;
+  height: auto;
+}

@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Panel de usuarios</title>
+  </head>
+  <body>
+    <main>
+      <h1>Panel de usuarios</h1>
+      <div class="row">
+        <div class="col">
+          <h2>Lista de usuarios</h2>
+          <div class="users-wrapper">
+            <ul class="users-list"></ul>
+          </div>
+          <div class="user-form">
+            <h2>Añadir usuario</h2>
+            <form id="userForm">
+              <div class="form-group">
+                <label for="name">Nombre</label>
+                <input id="name" name="name">
+              </div>
+              <div class="form-group">
+                <label for="job">Trabajo</label>
+                <input id="job" name="job">
+              </div>
+              <button type="submit">Crear</button>
+            </form>
+          </div>
+        </div>
+        <div class="col">
+          <div class="user hidden"></div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
