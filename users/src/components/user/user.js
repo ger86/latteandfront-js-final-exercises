@@ -1,10 +1,10 @@
-import createError from '../utils/createError';
-import createLoader from '../utils/createLoader';
-import api from '../utils/api';
+import alert from '../alert';
+import api from '../../utils/api';
+import './styles.css';
 
 const userDiv = document.querySelector('.user');
 
-function renderUser(user) {
+function createHtml(user) {
   const avatar = document.createElement('img');
   avatar.src = user.avatar;
   const p1 = document.createElement('p');
@@ -23,11 +23,11 @@ async function fetchUser(id) {
 async function render(id) {
   userDiv.classList.remove('hidden');
   userDiv.innerHTML = '';
-  const loader = createLoader('Cargando usuario');
+  const loader = alert.createLoader('Cargando usuario');
   userDiv.appendChild(loader);
   try {
     const user = await fetchUser(id);
-    const userContent = renderUser(user);
+    const userContent = createHtml(user);
     userDiv.appendChild(userContent);
   } catch (error) {
     const divError = createError('Se produjo un error recuperando el usuario');

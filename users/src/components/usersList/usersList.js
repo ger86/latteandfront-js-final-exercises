@@ -1,7 +1,7 @@
-import createError from '../utils/createError';
-import createLoader from '../utils/createLoader';
-import api from '../utils/api';
-import userComponent from './user';
+import alert from '../alert'
+import api from '../../utils/api';
+import userComponent from '../user';
+import './styles.css';
 
 const usersList = document.querySelector('.users-list');
 
@@ -18,14 +18,14 @@ async function fetchUsers() {
 
 async function render() {
   usersList.innerHTML = '';
-  const loader = createLoader('Cargando usuarios');
+  const loader = alert.createLoader('Cargando usuarios');
   usersList.appendChild(loader);
   try {
     const users = await fetchUsers();
     const userListItems = users.map(createUserLi);
     usersList.append(...userListItems);
   } catch (error) {
-    const divError = createError('Se produjo un error recuperando los usuarios');
+    const divError = alert.createError('Se produjo un error recuperando los usuarios');
     usersList.appendChild(divError);
   } finally {
     usersList.removeChild(loader);

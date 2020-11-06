@@ -1,7 +1,6 @@
-import createError from '../utils/createError';
-import createLoader from '../utils/createLoader';
-import createSuccess from '../utils/createSuccess';
-import api from '../utils/api';
+import alert from '../alert';
+import api from '../../utils/api';
+import './styles.css';
 
 const form = document.getElementById('userForm');
 const nameInput = document.getElementById('name');
@@ -33,26 +32,26 @@ function initForm(onCreate) {
       job: jobInput.value
     }
     if (user.name === '') {
-      divError = createError('El nombre del usuario no puede estar vacío');
+      divError = alert.createError('El nombre del usuario no puede estar vacío');
       form.appendChild(divError);
       return;
     }
     if (user.job === '') {
-      divError = createError('El trabajo del usuario no puede estar vacío');
+      divError = alert.createError('El trabajo del usuario no puede estar vacío');
       form.appendChild(divError);
       return;
     }
-    const loader = createLoader('Creando usuario');
+    const loader = alert.createLoader('Creando usuario');
     form.appendChild(loader);
     try {
       await postUser(user);
-      divSuccess = createSuccess('El usuario fue creado');
+      divSuccess = alert.createSuccess('El usuario fue creado');
       form.appendChild(divSuccess);
       if (onCreate) {
         onCreate();
       }
     } catch (error) {
-      divError = createError('Error creando el usuario' + error.message);
+      divError = alert.createError('Error creando el usuario' + error.message);
       form.appendChild(divError);
     } finally {
       form.removeChild(loader);
