@@ -1,29 +1,28 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
+  mode: "development",
   entry: {
-    app: "./src/index.js"
+    app: "./src/index.js",
   },
-  devtool: 'inline-source-map',
+  devtool: "inline-source-map",
   devServer: {
-    contentBase: './dist',
+    static: "./dist",
   },
   module: {
     rules: [
       {
         test: /\.css$/,
-        use: [
-          'style-loader',
-          'css-loader',
-        ],
+        use: ["style-loader", "css-loader"],
       },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'src/index.html'
+      template: "src/index.html",
+      title: "Calculadora de la letra del DNI",
     }),
     new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
   ],

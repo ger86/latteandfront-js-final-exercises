@@ -45,3 +45,8 @@ h1 {
   padding-right: 15px;
   padding-left: 15px;
 }
+
+.users-list li:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
